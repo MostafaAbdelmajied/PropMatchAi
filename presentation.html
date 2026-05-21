@@ -1,0 +1,2590 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PropMatch AI — Startup Presentation</title>
+
+        <style>
+            :root {
+                --bg: #f8fbff;
+                --text: #0f172a;
+                --muted: #64748b;
+                --soft: #f1f5f9;
+                --card: rgba(255, 255, 255, 0.76);
+                --card-solid: #ffffff;
+                --line: rgba(15, 23, 42, 0.09);
+                --blue: #2563eb;
+                --cyan: #06b6d4;
+                --teal: #14b8a6;
+                --emerald: #10b981;
+                --purple: #7c3aed;
+                --pink: #db2777;
+                --orange: #f97316;
+                --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+                --shadow-soft: 0 14px 38px rgba(15, 23, 42, 0.09);
+                --radius: 28px;
+                --slide-w: 100vw;
+                --slide-h: 56.25vw;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                font-family: Inter, "Segoe UI", Arial, sans-serif;
+                background:
+                    radial-gradient(
+                        circle at 8% 12%,
+                        rgba(37, 99, 235, 0.13),
+                        transparent 28%
+                    ),
+                    radial-gradient(
+                        circle at 90% 15%,
+                        rgba(20, 184, 166, 0.13),
+                        transparent 28%
+                    ),
+                    radial-gradient(
+                        circle at 80% 88%,
+                        rgba(124, 58, 237, 0.1),
+                        transparent 30%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #ffffff 0%,
+                        #f7fbff 42%,
+                        #f1fbf8 100%
+                    );
+                color: var(--text);
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background-image:
+                    linear-gradient(
+                        rgba(15, 23, 42, 0.035) 1px,
+                        transparent 1px
+                    ),
+                    linear-gradient(
+                        90deg,
+                        rgba(15, 23, 42, 0.035) 1px,
+                        transparent 1px
+                    );
+                background-size: 44px 44px;
+                mask-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.8),
+                    transparent 85%
+                );
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            .deck {
+                position: relative;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .slides {
+                height: 100%;
+                display: flex;
+                transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+                will-change: transform;
+            }
+
+            .slide {
+                min-width: 100vw;
+                height: 100vh;
+                display: grid;
+                place-items: center;
+                padding: 34px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .slide-frame {
+                width: min(1600px, calc(100vw - 68px));
+                aspect-ratio: 16 / 9;
+                max-height: calc(100vh - 68px);
+                border-radius: 34px;
+                background:
+                    linear-gradient(
+                        135deg,
+                        rgba(255, 255, 255, 0.94),
+                        rgba(255, 255, 255, 0.72)
+                    ),
+                    radial-gradient(
+                        circle at 6% 9%,
+                        rgba(37, 99, 235, 0.1),
+                        transparent 32%
+                    ),
+                    radial-gradient(
+                        circle at 94% 90%,
+                        rgba(16, 185, 129, 0.11),
+                        transparent 36%
+                    );
+                border: 1px solid rgba(255, 255, 255, 0.9);
+                box-shadow: var(--shadow);
+                backdrop-filter: blur(18px);
+                padding: 54px 64px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .slide-frame::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(
+                        circle at 18% 82%,
+                        rgba(6, 182, 212, 0.08),
+                        transparent 24%
+                    ),
+                    radial-gradient(
+                        circle at 82% 18%,
+                        rgba(124, 58, 237, 0.07),
+                        transparent 25%
+                    );
+                pointer-events: none;
+            }
+
+            .slide-frame > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .slide-kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 14px;
+                border-radius: 999px;
+                background: rgba(37, 99, 235, 0.08);
+                border: 1px solid rgba(37, 99, 235, 0.14);
+                color: #1d4ed8;
+                font-size: 14px;
+                font-weight: 800;
+                letter-spacing: 0.02em;
+                margin-bottom: 18px;
+            }
+
+            .slide-kicker::before {
+                content: "";
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--blue), var(--teal));
+                box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.09);
+            }
+
+            h1 {
+                font-size: clamp(56px, 7vw, 112px);
+                letter-spacing: -4px;
+                line-height: 0.95;
+                margin-bottom: 20px;
+                color: #0b1220;
+            }
+
+            h2 {
+                font-size: clamp(40px, 4.4vw, 74px);
+                letter-spacing: -2.4px;
+                line-height: 1.02;
+                margin-bottom: 18px;
+                color: #0b1220;
+            }
+
+            h3 {
+                font-size: 22px;
+                line-height: 1.2;
+                color: #111827;
+                margin-bottom: 9px;
+            }
+
+            p {
+                color: var(--muted);
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            .gradient-text {
+                background: linear-gradient(
+                    90deg,
+                    #0f172a,
+                    var(--blue),
+                    var(--teal),
+                    var(--purple)
+                );
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .subtitle {
+                font-size: clamp(24px, 2.3vw, 38px);
+                line-height: 1.25;
+                font-weight: 800;
+                color: #1e293b;
+                max-width: 930px;
+                margin-bottom: 18px;
+            }
+
+            .tagline {
+                font-size: 21px;
+                color: #475569;
+                max-width: 820px;
+                line-height: 1.55;
+            }
+
+            .grid {
+                display: grid;
+                gap: 18px;
+            }
+
+            .grid-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .grid-5 {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+
+            .card {
+                background: var(--card);
+                border: 1px solid rgba(255, 255, 255, 0.92);
+                border-radius: var(--radius);
+                padding: 22px;
+                box-shadow: var(--shadow-soft);
+                backdrop-filter: blur(18px);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.055),
+                    transparent 40%,
+                    rgba(20, 184, 166, 0.055)
+                );
+                pointer-events: none;
+            }
+
+            .card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 19px;
+                display: grid;
+                place-items: center;
+                font-size: 28px;
+                background:
+                    linear-gradient(
+                        135deg,
+                        rgba(37, 99, 235, 0.15),
+                        rgba(20, 184, 166, 0.13)
+                    ),
+                    #ffffff;
+                border: 1px solid rgba(37, 99, 235, 0.11);
+                box-shadow: 0 12px 26px rgba(37, 99, 235, 0.11);
+                margin-bottom: 16px;
+            }
+
+            .hero-layout {
+                height: 100%;
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 42px;
+                align-items: center;
+            }
+
+            .hero-visual {
+                height: 100%;
+                min-height: 520px;
+                border-radius: 40px;
+                background:
+                    radial-gradient(
+                        circle at 30% 18%,
+                        rgba(37, 99, 235, 0.17),
+                        transparent 30%
+                    ),
+                    radial-gradient(
+                        circle at 82% 70%,
+                        rgba(16, 185, 129, 0.18),
+                        transparent 32%
+                    ),
+                    linear-gradient(
+                        145deg,
+                        rgba(255, 255, 255, 0.94),
+                        rgba(241, 245, 249, 0.72)
+                    );
+                border: 1px solid rgba(255, 255, 255, 0.98);
+                box-shadow: var(--shadow);
+                position: relative;
+                overflow: hidden;
+                display: grid;
+                place-items: center;
+            }
+
+            .hero-visual::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background:
+                    linear-gradient(
+                        to top,
+                        rgba(37, 99, 235, 0.1),
+                        transparent 42%
+                    ),
+                    repeating-linear-gradient(
+                        90deg,
+                        transparent 0 38px,
+                        rgba(15, 23, 42, 0.045) 39px 41px
+                    );
+                opacity: 0.75;
+            }
+
+            .home-core {
+                width: 300px;
+                height: 300px;
+                border-radius: 54px;
+                background:
+                    radial-gradient(
+                        circle at 30% 22%,
+                        rgba(255, 255, 255, 0.95),
+                        transparent 42%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        rgba(37, 99, 235, 0.16),
+                        rgba(20, 184, 166, 0.18)
+                    );
+                border: 1px solid rgba(255, 255, 255, 0.95);
+                box-shadow:
+                    0 36px 88px rgba(37, 99, 235, 0.18),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                display: grid;
+                place-items: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .home-core .home {
+                font-size: 116px;
+                filter: drop-shadow(0 20px 26px rgba(15, 23, 42, 0.16));
+            }
+
+            .verified {
+                position: absolute;
+                top: -20px;
+                right: -20px;
+                width: 76px;
+                height: 76px;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(
+                    135deg,
+                    var(--emerald),
+                    var(--cyan)
+                );
+                color: #ffffff;
+                font-size: 38px;
+                font-weight: 900;
+                box-shadow: 0 18px 36px rgba(16, 185, 129, 0.22);
+                border: 7px solid rgba(255, 255, 255, 0.85);
+            }
+
+            .floating-pill {
+                position: absolute;
+                z-index: 2;
+                padding: 12px 16px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.78);
+                border: 1px solid rgba(255, 255, 255, 0.95);
+                box-shadow: 0 16px 32px rgba(15, 23, 42, 0.11);
+                color: #1e293b;
+                font-weight: 800;
+                font-size: 14px;
+                backdrop-filter: blur(14px);
+            }
+
+            .pill-1 {
+                top: 56px;
+                left: 48px;
+            }
+            .pill-2 {
+                right: 58px;
+                bottom: 82px;
+            }
+            .pill-3 {
+                left: 72px;
+                bottom: 104px;
+            }
+
+            .team-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 34px;
+            }
+
+            .team-list span {
+                padding: 9px 13px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.76);
+                border: 1px solid rgba(15, 23, 42, 0.08);
+                color: #334155;
+                font-size: 13px;
+                font-weight: 700;
+                box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+            }
+
+            .problem-card {
+                min-height: 235px;
+            }
+
+            .problem-card h3,
+            .solution-card h3 {
+                font-size: 20px;
+            }
+
+            .problem-card p,
+            .solution-card p {
+                font-size: 15.5px;
+            }
+
+            .solution-layout {
+                display: grid;
+                grid-template-columns: 0.95fr 1.05fr;
+                gap: 24px;
+                align-items: stretch;
+                margin-top: 24px;
+            }
+
+            .solution-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .mini-card {
+                background: rgba(255, 255, 255, 0.74);
+                border: 1px solid rgba(255, 255, 255, 0.95);
+                border-radius: 22px;
+                padding: 16px;
+                box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+            }
+
+            .mini-card strong {
+                display: block;
+                color: #111827;
+                margin-bottom: 4px;
+                font-size: 15.5px;
+            }
+
+            .mini-card span {
+                color: var(--muted);
+                font-size: 13.5px;
+                line-height: 1.5;
+            }
+
+            .workflow {
+                height: 100%;
+                min-height: 405px;
+                border-radius: 32px;
+                padding: 26px;
+                background:
+                    radial-gradient(
+                        circle at 18% 18%,
+                        rgba(37, 99, 235, 0.12),
+                        transparent 30%
+                    ),
+                    radial-gradient(
+                        circle at 84% 82%,
+                        rgba(16, 185, 129, 0.14),
+                        transparent 32%
+                    ),
+                    rgba(255, 255, 255, 0.66);
+                border: 1px solid rgba(255, 255, 255, 0.96);
+                box-shadow: var(--shadow-soft);
+                display: grid;
+                gap: 12px;
+            }
+
+            .flow-step {
+                display: grid;
+                grid-template-columns: 46px 1fr;
+                gap: 12px;
+                align-items: center;
+                padding: 13px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.75);
+                border: 1px solid rgba(15, 23, 42, 0.06);
+            }
+
+            .flow-num {
+                width: 42px;
+                height: 42px;
+                border-radius: 15px;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(135deg, var(--blue), var(--teal));
+                color: #ffffff;
+                font-weight: 900;
+                box-shadow: 0 12px 25px rgba(37, 99, 235, 0.15);
+            }
+
+            .flow-step strong {
+                display: block;
+                color: #111827;
+                font-size: 15.5px;
+                margin-bottom: 2px;
+            }
+
+            .flow-step span {
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .logo-row {
+                display: grid;
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                gap: 12px;
+                margin: 22px 0 18px;
+            }
+
+            .logo-box {
+                min-height: 72px;
+                border-radius: 22px;
+                background: rgba(255, 255, 255, 0.76);
+                border: 1px dashed rgba(37, 99, 235, 0.24);
+                display: grid;
+                place-items: center;
+                text-align: center;
+                color: #334155;
+                font-size: 13px;
+                font-weight: 900;
+                box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+                padding: 10px;
+            }
+
+            .logo-img {
+                max-width: 120px;
+                max-height: 44px;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                display: block;
+            }
+
+            .comparison-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .competitor-card {
+                padding: 18px;
+                border-radius: 24px;
+                background: rgba(255, 255, 255, 0.82);
+                border: 1px solid rgba(255, 255, 255, 0.98);
+                box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+                overflow: hidden;
+                position: relative;
+            }
+
+            .competitor-card::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 5px;
+                height: 100%;
+                background: linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--teal)
+                );
+            }
+
+            .competitor-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+            }
+
+            .competitor-head h3 {
+                margin: 0;
+                font-size: 17px;
+            }
+
+            .logo-mini {
+                width: 48px;
+                height: 38px;
+                border-radius: 14px;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.11),
+                    rgba(20, 184, 166, 0.1)
+                );
+                border: 1px solid rgba(37, 99, 235, 0.1);
+                color: var(--blue);
+                font-size: 11px;
+                font-weight: 900;
+            }
+
+            .logo-mini img {
+                width: 34px;
+                height: 26px;
+                object-fit: contain;
+                display: block;
+            }
+
+            .compare-line {
+                display: grid;
+                gap: 8px;
+                margin-top: 10px;
+            }
+
+            .compare-line div {
+                padding: 9px 10px;
+                border-radius: 15px;
+                background: rgba(248, 250, 252, 0.86);
+                border: 1px solid rgba(15, 23, 42, 0.055);
+                font-size: 12.6px;
+                line-height: 1.42;
+                color: #475569;
+            }
+
+            .compare-line strong {
+                color: #0f172a;
+            }
+
+            .usp-banner {
+                margin-top: 18px;
+                border-radius: 26px;
+                padding: 18px 22px;
+                background: linear-gradient(
+                    90deg,
+                    rgba(37, 99, 235, 0.11),
+                    rgba(20, 184, 166, 0.1),
+                    rgba(124, 58, 237, 0.1)
+                );
+                border: 1px solid rgba(37, 99, 235, 0.13);
+                color: #111827;
+                font-size: 21px;
+                font-weight: 900;
+                text-align: center;
+            }
+
+            .persona {
+                min-height: 288px;
+            }
+
+            .list {
+                list-style: none;
+                display: grid;
+                gap: 10px;
+                margin-top: 14px;
+            }
+
+            .list li {
+                color: #475569;
+                font-size: 15.5px;
+                line-height: 1.45;
+                display: flex;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .list li::before {
+                content: "✓";
+                width: 21px;
+                height: 21px;
+                min-width: 21px;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                color: #ffffff;
+                background: linear-gradient(
+                    135deg,
+                    var(--emerald),
+                    var(--teal)
+                );
+                font-size: 12px;
+                font-weight: 900;
+                margin-top: 1px;
+            }
+
+            .map-card {
+                min-height: 288px;
+                display: grid;
+                place-items: center;
+                text-align: center;
+            }
+
+            .map-pin {
+                width: 124px;
+                height: 124px;
+                border-radius: 50% 50% 50% 0;
+                transform: rotate(-45deg);
+                display: grid;
+                place-items: center;
+                margin: 0 auto 22px;
+                background: linear-gradient(135deg, var(--blue), var(--teal));
+                box-shadow: 0 22px 44px rgba(37, 99, 235, 0.18);
+            }
+
+            .map-pin span {
+                transform: rotate(45deg);
+                color: #ffffff;
+                font-size: 44px;
+                font-weight: 900;
+            }
+
+            .channel-grid {
+                display: grid;
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                gap: 12px;
+                margin-top: 18px;
+            }
+
+            .channel {
+                min-height: 105px;
+                border-radius: 22px;
+                background: rgba(255, 255, 255, 0.78);
+                border: 1px solid rgba(255, 255, 255, 0.96);
+                box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+                padding: 14px;
+                display: grid;
+                align-content: center;
+                text-align: center;
+                gap: 7px;
+            }
+
+            .channel b {
+                font-size: 14px;
+                color: #111827;
+            }
+
+            .channel span {
+                font-size: 24px;
+            }
+
+            .wallet-layout {
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: 24px;
+                margin-top: 28px;
+                align-items: stretch;
+            }
+
+            .wallet-card {
+                min-height: 470px;
+                border-radius: 36px;
+                padding: 30px;
+                background:
+                    radial-gradient(
+                        circle at 24% 12%,
+                        rgba(37, 99, 235, 0.14),
+                        transparent 30%
+                    ),
+                    radial-gradient(
+                        circle at 82% 78%,
+                        rgba(16, 185, 129, 0.15),
+                        transparent 34%
+                    ),
+                    rgba(255, 255, 255, 0.78);
+                border: 1px solid rgba(255, 255, 255, 0.96);
+                box-shadow: var(--shadow);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .point-number {
+                font-size: 78px;
+                font-weight: 950;
+                letter-spacing: -3px;
+                color: #0f172a;
+                margin: 28px 0 6px;
+            }
+
+            .rate {
+                display: inline-flex;
+                width: fit-content;
+                padding: 9px 13px;
+                border-radius: 999px;
+                background: rgba(16, 185, 129, 0.1);
+                border: 1px solid rgba(16, 185, 129, 0.18);
+                color: #047857;
+                font-weight: 900;
+                margin-top: 12px;
+            }
+
+            .transaction-list {
+                display: grid;
+                gap: 12px;
+                margin-top: 24px;
+            }
+
+            .transaction {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 14px 15px;
+                border-radius: 17px;
+                background: rgba(255, 255, 255, 0.76);
+                border: 1px solid rgba(15, 23, 42, 0.06);
+                color: #334155;
+                font-weight: 800;
+            }
+
+            .transaction strong {
+                color: var(--blue);
+            }
+
+            .revenue-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .revenue-card strong {
+                display: block;
+                font-size: 34px;
+                color: #0f172a;
+                letter-spacing: -1px;
+                margin-bottom: 4px;
+            }
+
+            /* Keep business model slide compact so content fits 16:9 without clipping */
+            section[aria-label="Slide 7"] .wallet-layout {
+                margin-top: 18px;
+                gap: 16px;
+            }
+
+            section[aria-label="Slide 7"] .wallet-card {
+                min-height: 420px;
+                padding: 22px;
+            }
+
+            section[aria-label="Slide 7"] .point-number {
+                font-size: 62px;
+                margin: 14px 0 4px;
+            }
+
+            section[aria-label="Slide 7"] .rate {
+                margin-top: 8px;
+                padding: 7px 11px;
+            }
+
+            section[aria-label="Slide 7"] .transaction-list {
+                gap: 10px;
+                margin-top: 16px;
+            }
+
+            section[aria-label="Slide 7"] .transaction {
+                padding: 11px 13px;
+                font-size: 14px;
+            }
+
+            section[aria-label="Slide 7"] .revenue-grid {
+                gap: 10px;
+            }
+
+            section[aria-label="Slide 7"] .revenue-card {
+                padding: 15px;
+            }
+
+            section[aria-label="Slide 7"] .revenue-card strong {
+                font-size: 28px;
+                margin-bottom: 2px;
+            }
+
+            section[aria-label="Slide 7"] .revenue-card p {
+                font-size: 13px;
+                line-height: 1.35;
+            }
+
+            .small-label {
+                display: inline-flex;
+                padding: 7px 11px;
+                border-radius: 999px;
+                background: rgba(37, 99, 235, 0.08);
+                color: #1d4ed8;
+                font-size: 12px;
+                font-weight: 900;
+                margin-bottom: 12px;
+            }
+
+            .cost-layout {
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 24px;
+                margin-top: 28px;
+                align-items: stretch;
+            }
+
+            .cost-bars {
+                display: grid;
+                gap: 13px;
+                margin-top: 18px;
+            }
+
+            .cost-row {
+                display: grid;
+                grid-template-columns: 172px 1fr;
+                gap: 14px;
+                align-items: center;
+            }
+
+            .cost-row span {
+                color: #334155;
+                font-size: 14px;
+                font-weight: 800;
+            }
+
+            .bar {
+                height: 13px;
+                border-radius: 999px;
+                background: rgba(15, 23, 42, 0.07);
+                overflow: hidden;
+            }
+
+            .bar i {
+                display: block;
+                height: 100%;
+                border-radius: 999px;
+                background: linear-gradient(90deg, var(--blue), var(--teal));
+            }
+
+            .cost-card-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .cost-mini {
+                min-height: 142px;
+                display: grid;
+                align-content: center;
+            }
+
+            .roadmap {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 18px;
+                margin-top: 34px;
+            }
+
+            .phase-card {
+                min-height: 360px;
+            }
+
+            .phase-num {
+                width: 50px;
+                height: 50px;
+                border-radius: 17px;
+                background: linear-gradient(135deg, var(--blue), var(--teal));
+                display: grid;
+                place-items: center;
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: 950;
+                box-shadow: 0 14px 28px rgba(37, 99, 235, 0.15);
+                margin-bottom: 18px;
+            }
+
+            .roadmap-line {
+                margin-top: 22px;
+                min-height: 110px;
+                border-radius: 30px;
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(37, 99, 235, 0.1),
+                        rgba(20, 184, 166, 0.1),
+                        rgba(124, 58, 237, 0.08)
+                    ),
+                    rgba(255, 255, 255, 0.72);
+                border: 1px solid rgba(255, 255, 255, 0.95);
+                box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+                display: grid;
+                place-items: center;
+                color: #1e293b;
+                font-weight: 950;
+                font-size: 24px;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .final-center {
+                height: 100%;
+                display: grid;
+                place-items: center;
+                text-align: center;
+            }
+
+            .final-content {
+                max-width: 1030px;
+            }
+
+            .final-icon {
+                width: 160px;
+                height: 160px;
+                border-radius: 48px;
+                display: grid;
+                place-items: center;
+                margin: 0 auto 28px;
+                background:
+                    radial-gradient(
+                        circle at 30% 20%,
+                        rgba(255, 255, 255, 0.92),
+                        transparent 36%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        rgba(37, 99, 235, 0.17),
+                        rgba(20, 184, 166, 0.17)
+                    );
+                border: 1px solid rgba(255, 255, 255, 0.95);
+                box-shadow: var(--shadow);
+                font-size: 76px;
+            }
+
+            .final-message {
+                font-size: 25px;
+                color: #334155;
+                max-width: 940px;
+                margin: 0 auto;
+                line-height: 1.55;
+            }
+
+            .final-cards {
+                margin-top: 36px;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px;
+            }
+
+            .closing-tagline {
+                margin-top: 34px;
+                display: inline-flex;
+                padding: 17px 28px;
+                border-radius: 999px;
+                color: #ffffff;
+                font-weight: 950;
+                font-size: 26px;
+                background: linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--teal),
+                    var(--purple)
+                );
+                box-shadow: 0 18px 40px rgba(37, 99, 235, 0.19);
+            }
+
+            .controls {
+                position: fixed;
+                right: 28px;
+                bottom: 24px;
+                display: flex;
+                gap: 12px;
+                z-index: 20;
+            }
+
+            .control-btn {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                border: 1px solid rgba(15, 23, 42, 0.09);
+                background: rgba(255, 255, 255, 0.78);
+                box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
+                color: #0f172a;
+                font-size: 22px;
+                font-weight: 900;
+                cursor: pointer;
+                backdrop-filter: blur(14px);
+                transition: 220ms ease;
+            }
+
+            .control-btn:hover {
+                transform: translateY(-2px);
+                background: #ffffff;
+            }
+
+            .slide-counter {
+                position: fixed;
+                left: 28px;
+                bottom: 28px;
+                z-index: 20;
+                padding: 10px 14px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.78);
+                border: 1px solid rgba(15, 23, 42, 0.08);
+                box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+                backdrop-filter: blur(14px);
+                color: #334155;
+                font-weight: 900;
+                font-size: 14px;
+            }
+
+            .progress-wrap {
+                position: fixed;
+                left: 28px;
+                right: 28px;
+                top: 22px;
+                height: 8px;
+                border-radius: 999px;
+                background: rgba(15, 23, 42, 0.07);
+                z-index: 20;
+                overflow: hidden;
+            }
+
+            .progress {
+                height: 100%;
+                width: 11.11%;
+                border-radius: inherit;
+                background: linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--teal),
+                    var(--purple)
+                );
+                transition: width 650ms cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .slide-number-local {
+                position: absolute;
+                left: 36px;
+                bottom: 30px;
+                color: rgba(15, 23, 42, 0.34);
+                font-size: 14px;
+                font-weight: 900;
+            }
+
+            .animate {
+                opacity: 0;
+                transform: translateY(26px) scale(0.985);
+                transition:
+                    opacity 750ms cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+                transition-delay: var(--delay, 0ms);
+            }
+
+            .slide.active .animate {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            .slide.active .float {
+                animation: float 4.8s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-12px);
+                }
+            }
+
+            @media (max-width: 1100px) {
+                .slide {
+                    padding: 18px;
+                }
+
+                .slide-frame {
+                    width: calc(100vw - 36px);
+                    max-height: calc(100vh - 36px);
+                    padding: 34px;
+                }
+
+                h1 {
+                    font-size: 58px;
+                    letter-spacing: -2px;
+                }
+
+                h2 {
+                    font-size: 38px;
+                    letter-spacing: -1px;
+                }
+
+                .hero-layout,
+                .solution-layout,
+                .wallet-layout,
+                .cost-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-visual {
+                    min-height: 300px;
+                }
+
+                .home-core {
+                    width: 210px;
+                    height: 210px;
+                }
+
+                .home-core .home {
+                    font-size: 82px;
+                }
+
+                .grid-5,
+                .grid-4,
+                .comparison-grid,
+                .roadmap,
+                .channel-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .logo-row {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+
+                .slide-frame {
+                    overflow-y: auto;
+                }
+            }
+
+            @media (max-width: 700px) {
+                html,
+                body {
+                    overflow: auto;
+                }
+
+                .deck {
+                    height: auto;
+                }
+
+                .slides {
+                    display: block;
+                    transform: none !important;
+                }
+
+                .slide {
+                    min-height: 100vh;
+                    height: auto;
+                }
+
+                .slide-frame {
+                    aspect-ratio: auto;
+                    max-height: none;
+                    min-height: calc(100vh - 36px);
+                    overflow: visible;
+                    padding: 28px;
+                }
+
+                .grid-5,
+                .grid-4,
+                .grid-3,
+                .grid-2,
+                .comparison-grid,
+                .roadmap,
+                .channel-grid,
+                .logo-row,
+                .revenue-grid,
+                .solution-list,
+                .cost-card-grid,
+                .final-cards {
+                    grid-template-columns: 1fr;
+                }
+
+                .controls,
+                .progress-wrap,
+                .slide-counter {
+                    display: none;
+                }
+            }
+
+            @media print {
+                html,
+                body {
+                    width: 100%;
+                    height: auto;
+                    overflow: visible;
+                    background: #ffffff;
+                }
+
+                body::before,
+                .controls,
+                .progress-wrap,
+                .slide-counter {
+                    display: none !important;
+                }
+
+                .deck {
+                    height: auto;
+                    overflow: visible;
+                }
+
+                .slides {
+                    display: block;
+                    transform: none !important;
+                }
+
+                .slide {
+                    width: 100%;
+                    height: 100vh;
+                    min-height: 100vh;
+                    padding: 0;
+                    page-break-after: always;
+                    break-after: page;
+                }
+
+                .slide-frame {
+                    width: 100%;
+                    height: 100vh;
+                    max-height: none;
+                    border-radius: 0;
+                    box-shadow: none;
+                    border: none;
+                    aspect-ratio: 16 / 9;
+                }
+
+                .animate {
+                    opacity: 1 !important;
+                    transform: none !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="deck">
+            <div class="progress-wrap">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div class="slide-counter">
+                <span id="currentSlide">01</span> /
+                <span id="totalSlides">11</span>
+            </div>
+
+            <div class="slides" id="slides">
+                <section class="slide active" aria-label="Slide 1">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Agenda</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            What we will cover today
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 24px">
+                            <div class="card animate" style="--delay: 200ms">
+                                <h3>1. Problem & opportunity</h3>
+                                <p>
+                                    Why renting is painful today and where PropMatch fits.
+                                </p>
+                            </div>
+                            <div class="card animate" style="--delay: 260ms">
+                                <h3>2. Solution walkthrough</h3>
+                                <p>
+                                    How AI verification, matching, and direct connect work.
+                                </p>
+                            </div>
+                            <div class="card animate" style="--delay: 320ms">
+                                <h3>3. Market & competition</h3>
+                                <p>
+                                    Audience focus, competitor gaps, and our unique edge.
+                                </p>
+                            </div>
+                            <div class="card animate" style="--delay: 380ms">
+                                <h3>4. Business model & roadmap</h3>
+                                <p>
+                                    Revenue streams, MVP costs, and expansion plan.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">01 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 2">
+                    <div class="slide-frame">
+                        <div class="hero-layout">
+                            <div>
+                                <div
+                                    class="slide-kicker animate"
+                                    style="--delay: 80ms"
+                                >
+                                    AI PropTech Startup
+                                </div>
+                                <h1
+                                    class="gradient-text animate"
+                                    style="--delay: 180ms"
+                                >
+                                    PropMatch AI
+                                </h1>
+                                <div
+                                    class="subtitle animate"
+                                    style="--delay: 280ms"
+                                >
+                                    The Broker-Free AI Real Estate Agent for
+                                    Long-Term Rentals
+                                </div>
+                                <p
+                                    class="tagline animate"
+                                    style="--delay: 380ms"
+                                >
+                                    Rent directly from owners. AI handles
+                                    verification, questions, matching, and
+                                    contracts.
+                                </p>
+
+                                <div
+                                    class="team-list animate"
+                                    style="--delay: 520ms"
+                                >
+                                    <span>Mohamed Waleed Mohamed</span>
+                                    <span>Samer Yousry</span>
+                                    <span>Mostafa Abdelmajied</span>
+                                    <span>Ali Essam</span>
+                                    <span>Abdelhamid Mostafa</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="hero-visual animate"
+                                style="--delay: 360ms"
+                            >
+                                <div class="floating-pill pill-1 float">
+                                    AI Matchmaking
+                                </div>
+                                <div class="floating-pill pill-2 float">
+                                    Verified Ownership
+                                </div>
+                                <div class="floating-pill pill-3 float">
+                                    Direct Connect
+                                </div>
+
+                                <div class="home-core float">
+                                    <div class="verified">✓</div>
+                                    <div class="home">🏠</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-number-local">02 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 3">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">The Problem</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Rental is expensive, slow, and hard to trust.
+                        </h2>
+                        <p
+                            class="animate"
+                            style="
+                                --delay: 190ms;
+                                max-width: 880px;
+                                margin-bottom: 30px;
+                            "
+                        >
+                            Long-term rentals still depend on brokers, repeated
+                            calls, unclear ownership, and manual paperwork.
+                        </p>
+
+                        <div class="grid grid-5">
+                            <div
+                                class="card problem-card animate"
+                                style="--delay: 260ms"
+                            >
+                                <div class="icon">💸</div>
+                                <h3>High broker commissions</h3>
+                                <p>
+                                    Tenants pay a large fee just to reach
+                                    property owners.
+                                </p>
+                            </div>
+
+                            <div
+                                class="card problem-card animate"
+                                style="--delay: 340ms"
+                            >
+                                <div class="icon">⚠️</div>
+                                <h3>Fake or duplicated listings</h3>
+                                <p>
+                                    Many listings are repeated, outdated, or not
+                                    verified.
+                                </p>
+                            </div>
+
+                            <div
+                                class="card problem-card animate"
+                                style="--delay: 420ms"
+                            >
+                                <div class="icon">📞</div>
+                                <h3>Repeated calls</h3>
+                                <p>
+                                    Tenants and owners keep answering the same
+                                    questions.
+                                </p>
+                            </div>
+
+                            <div
+                                class="card problem-card animate"
+                                style="--delay: 500ms"
+                            >
+                                <div class="icon">🤝</div>
+                                <h3>Low trust</h3>
+                                <p>
+                                    Both sides lack clear proof before meeting
+                                    or paying.
+                                </p>
+                            </div>
+
+                            <div
+                                class="card problem-card animate"
+                                style="--delay: 580ms"
+                            >
+                                <div class="icon">📄</div>
+                                <h3>Manual contracts</h3>
+                                <p>
+                                    The rental process is still fragmented and
+                                    unstructured.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="slide-number-local">03 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 4">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Our Solution</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            We replace broker friction with AI automation.
+                        </h2>
+                        <p
+                            class="animate"
+                            style="--delay: 180ms; max-width: 900px"
+                        >
+                            PropMatch AI is not only a listing platform. It
+                            automates verification, discovery, Q&A, direct
+                            access, contracts, and post-interaction trust.
+                        </p>
+
+                        <div class="solution-layout">
+                            <div class="solution-list">
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 260ms"
+                                >
+                                    <strong>🔎 OCR Verification</strong>
+                                    <span
+                                        >Checks owner and property documents to
+                                        reduce fraud.</span
+                                    >
+                                </div>
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 320ms"
+                                >
+                                    <strong>🤖 Tenant Matchmaker AI</strong>
+                                    <span
+                                        >Recommends suitable rentals based on
+                                        tenant needs.</span
+                                    >
+                                </div>
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 380ms"
+                                >
+                                    <strong>💬 Owner RAG Assistant</strong>
+                                    <span
+                                        >Answers tenant questions using approved
+                                        property data.</span
+                                    >
+                                </div>
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 440ms"
+                                >
+                                    <strong>🔐 Direct Connect</strong>
+                                    <span
+                                        >Serious tenants use points to unlock
+                                        owner access.</span
+                                    >
+                                </div>
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 500ms"
+                                >
+                                    <strong>✨ AI Listing Enhancement</strong>
+                                    <span
+                                        >Improves listing title, description,
+                                        and clarity.</span
+                                    >
+                                </div>
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 560ms"
+                                >
+                                    <strong>📝 Contract Generation</strong>
+                                    <span
+                                        >Creates a structured rental contract
+                                        draft.</span
+                                    >
+                                </div>
+                                <div
+                                    class="mini-card animate"
+                                    style="--delay: 620ms"
+                                >
+                                    <strong>⭐ Review System</strong>
+                                    <span
+                                        >Builds trust after real owner-tenant
+                                        interaction.</span
+                                    >
+                                </div>
+                            </div>
+
+                            <div
+                                class="workflow animate"
+                                style="--delay: 340ms"
+                            >
+                                <div class="flow-step">
+                                    <div class="flow-num">1</div>
+                                    <div>
+                                        <strong>Owner uploads property</strong>
+                                        <span
+                                            >Property details and ownership
+                                            documents are submitted.</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="flow-step">
+                                    <div class="flow-num">2</div>
+                                    <div>
+                                        <strong
+                                            >AI verifies and enhances</strong
+                                        >
+                                        <span
+                                            >OCR validation + better listing
+                                            title and description.</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="flow-step">
+                                    <div class="flow-num">3</div>
+                                    <div>
+                                        <strong>Tenant gets matched</strong>
+                                        <span
+                                            >AI recommends the best-fit
+                                            options.</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="flow-step">
+                                    <div class="flow-num">4</div>
+                                    <div>
+                                        <strong
+                                            >RAG assistant answers
+                                            questions</strong
+                                        >
+                                        <span
+                                            >Owner saves time while tenants get
+                                            instant clarity.</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="flow-step">
+                                    <div class="flow-num">5</div>
+                                    <div>
+                                        <strong
+                                            >Direct Connect and contract</strong
+                                        >
+                                        <span
+                                            >Points unlock contact, viewing, and
+                                            structured contract draft.</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-number-local">04 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 5">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">
+                            Competitors & USP
+                        </div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Others help users find listings. PropMatch helps
+                            them rent safely.
+                        </h2>
+
+                        <div class="logo-row animate" style="--delay: 180ms">
+                            <div class="logo-box">
+                                <img class="logo-img" src="Logos/aqarmap.jpg" alt="Aqarmap logo" />
+                            </div>
+                            <div class="logo-box">
+                                <img class="logo-img" src="Logos/dubizzle.jpeg" alt="Dubizzle logo" />
+                            </div>
+                            <div class="logo-box">
+                                <img class="logo-img" src="Logos/property_finder.png" alt="Property Finder logo" />
+                            </div>
+                            <div class="logo-box">
+                                <img class="logo-img" src="Logos/Nawy.jpeg" alt="Nawy logo" />
+                            </div>
+                            <div class="logo-box">
+                                <img class="logo-img" src="Logos/facebook.jpeg" alt="Facebook Marketplace logo" />
+                            </div>
+                            <div class="logo-box">
+                                👥 Traditional Brokers
+                            </div>
+                        </div>
+
+                        <div class="comparison-grid">
+                            <div
+                                class="competitor-card animate"
+                                style="--delay: 240ms"
+                            >
+                                <div class="competitor-head">
+                                    <h3>Aqarmap</h3>
+                                    <div class="logo-mini"><img src="Logos/aqarmap.jpg" alt="Aqarmap logo" /></div>
+                                </div>
+                                <div class="compare-line">
+                                    <div>
+                                        <strong>Does well:</strong> strong real
+                                        estate search and awareness.
+                                    </div>
+                                    <div>
+                                        <strong>Limitation:</strong> mainly
+                                        listing and lead-based.
+                                    </div>
+                                    <div>
+                                        <strong>Our edge:</strong> verification,
+                                        Q&A automation, and Direct Connect.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="competitor-card animate"
+                                style="--delay: 300ms"
+                            >
+                                <div class="competitor-head">
+                                    <h3>Dubizzle / OLX Egypt</h3>
+                                    <div class="logo-mini"><img src="Logos/dubizzle.jpeg" alt="Dubizzle logo" /></div>
+                                </div>
+                                <div class="compare-line">
+                                    <div>
+                                        <strong>Does well:</strong> large
+                                        listings volume and high traffic.
+                                    </div>
+                                    <div>
+                                        <strong>Limitation:</strong> weak
+                                        verification and repeated listings.
+                                    </div>
+                                    <div>
+                                        <strong>Our edge:</strong> verified
+                                        listings and AI-guided rental flow.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="competitor-card animate"
+                                style="--delay: 360ms"
+                            >
+                                <div class="competitor-head">
+                                    <h3>Property Finder</h3>
+                                    <div class="logo-mini"><img src="Logos/property_finder.png" alt="Property Finder logo" /></div>
+                                </div>
+                                <div class="compare-line">
+                                    <div>
+                                        <strong>Does well:</strong> professional
+                                        interface and premium listings.
+                                    </div>
+                                    <div>
+                                        <strong>Limitation:</strong>
+                                        broker-oriented, not process automation.
+                                    </div>
+                                    <div>
+                                        <strong>Our edge:</strong> owner-direct,
+                                        broker-free rental journey.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="competitor-card animate"
+                                style="--delay: 420ms"
+                            >
+                                <div class="competitor-head">
+                                    <h3>Nawy</h3>
+                                    <div class="logo-mini"><img src="Logos/Nawy.jpeg" alt="Nawy logo" /></div>
+                                </div>
+                                <div class="compare-line">
+                                    <div>
+                                        <strong>Does well:</strong> premium
+                                        digital brokerage experience.
+                                    </div>
+                                    <div>
+                                        <strong>Limitation:</strong> still
+                                        brokerage-oriented.
+                                    </div>
+                                    <div>
+                                        <strong>Our edge:</strong> removes
+                                        broker dependency completely.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="competitor-card animate"
+                                style="--delay: 480ms"
+                            >
+                                <div class="competitor-head">
+                                    <h3>Facebook Marketplace</h3>
+                                    <div class="logo-mini"><img src="Logos/facebook.jpeg" alt="Facebook logo" /></div>
+                                </div>
+                                <div class="compare-line">
+                                    <div>
+                                        <strong>Does well:</strong> massive
+                                        local reach and activity.
+                                    </div>
+                                    <div>
+                                        <strong>Limitation:</strong> chaotic,
+                                        unsafe, and hard to verify.
+                                    </div>
+                                    <div>
+                                        <strong>Our edge:</strong> trust,
+                                        structure, and AI guidance.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="competitor-card animate"
+                                style="--delay: 540ms"
+                            >
+                                <div class="competitor-head">
+                                    <h3>Traditional Brokers</h3>
+                                    <div class="logo-mini">👥</div>
+                                </div>
+                                <div class="compare-line">
+                                    <div>
+                                        <strong>Does well:</strong> local
+                                        knowledge and physical access.
+                                    </div>
+                                    <div>
+                                        <strong>Limitation:</strong> high
+                                        commission and inconsistent trust.
+                                    </div>
+                                    <div>
+                                        <strong>Our edge:</strong> replaces
+                                        repeated broker tasks with AI.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="usp-banner animate" style="--delay: 620ms">
+                            Verified broker-free rentals powered by AI — from
+                            discovery to contract.
+                        </div>
+
+                        <div class="slide-number-local">05 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 6">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">
+                            Audience & Go-To-Market
+                        </div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Focused local launch. Scalable national opportunity.
+                        </h2>
+
+                        <div class="grid grid-3" style="margin-top: 28px">
+                            <div
+                                class="card persona animate"
+                                style="--delay: 200ms"
+                            >
+                                <div class="icon">👨‍💻</div>
+                                <h3>Young professionals 23–35</h3>
+                                <ul class="list">
+                                    <li>Need fast rental decisions.</li>
+                                    <li>
+                                        Comfortable with AI and chat-based
+                                        search.
+                                    </li>
+                                    <li>Want to avoid broker commission.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="card persona animate"
+                                style="--delay: 300ms"
+                            >
+                                <div class="icon">👨‍👩‍👧</div>
+                                <h3>Families 30–55</h3>
+                                <ul class="list">
+                                    <li>Care about verified ownership.</li>
+                                    <li>
+                                        Need safety and long-term stability.
+                                    </li>
+                                    <li>
+                                        Want clear information before visiting.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="card map-card animate"
+                                style="--delay: 400ms"
+                            >
+                                <div>
+                                    <div class="map-pin"><span>📍</span></div>
+                                    <h3>MVP Launch: Mansoura, Egypt</h3>
+                                    <p>
+                                        High rental demand, strong broker
+                                        dependency, and a controlled city for
+                                        MVP validation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="channel-grid animate"
+                            style="--delay: 520ms"
+                        >
+                            <div class="channel">
+                                <span>👥</span><b>Facebook rental groups</b>
+                            </div>
+                            <div class="channel">
+                                <span>🎬</span><b>TikTok / Reels</b>
+                            </div>
+                            <div class="channel">
+                                <span>🔍</span><b>Google Search Ads</b>
+                            </div>
+                            <div class="channel">
+                                <span>🎁</span><b>Referral points</b>
+                            </div>
+                            <div class="channel">
+                                <span>🏢</span><b>Owner onboarding</b>
+                            </div>
+                            <div class="channel">
+                                <span>☕</span><b>Local partnerships</b>
+                            </div>
+                        </div>
+
+                        <div class="usp-banner animate" style="--delay: 640ms">
+                            Local message: Rent in Mansoura without a broker —
+                            verified properties and AI guidance.
+                        </div>
+
+                        <div class="slide-number-local">06 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 7">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Business Model</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            A unified points economy for tenants and owners.
+                        </h2>
+                        <p
+                            class="animate"
+                            style="--delay: 180ms; max-width: 820px"
+                        >
+                            Every user action is powered by a simple points
+                            wallet. 1 point is approximately equal to 1 EGP.
+                        </p>
+
+                        <div class="wallet-layout">
+                            <div
+                                class="wallet-card animate"
+                                style="--delay: 270ms"
+                            >
+                                <div>
+                                    <h3>PropMatch Wallet</h3>
+                                    <div class="point-number">1,250</div>
+                                    <p>Available points balance</p>
+                                    <div class="rate">1 point ≈ 1 EGP</div>
+                                </div>
+
+                                <div class="transaction-list">
+                                    <div class="transaction">
+                                        <span>Unlock owner details</span
+                                        ><strong>75 pts</strong>
+                                    </div>
+                                    <div class="transaction">
+                                        <span>Request viewing</span
+                                        ><strong>100 pts</strong>
+                                    </div>
+                                    <div class="transaction">
+                                        <span>Listing activation</span
+                                        ><strong>270 pts</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="revenue-grid">
+                                <div
+                                    class="card revenue-card animate"
+                                    style="--delay: 340ms"
+                                >
+                                    <span class="small-label">Tenant</span>
+                                    <strong>75 pts</strong>
+                                    <p>
+                                        Unlock owner details and move from
+                                        browsing to serious contact.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card revenue-card animate"
+                                    style="--delay: 400ms"
+                                >
+                                    <span class="small-label">Tenant</span>
+                                    <strong>100 pts</strong>
+                                    <p>
+                                        Request viewing or Direct Connect when
+                                        ready to take action.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card revenue-card animate"
+                                    style="--delay: 460ms"
+                                >
+                                    <span class="small-label">Owner</span>
+                                    <strong>270 pts</strong>
+                                    <p>
+                                        Mandatory listing activation package for
+                                        trusted marketplace quality.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card revenue-card animate"
+                                    style="--delay: 520ms"
+                                >
+                                    <span class="small-label">Breakdown</span>
+                                    <strong>120 + 150</strong>
+                                    <p>
+                                        OCR verification + AI enhancement and
+                                        RAG assistant for 1 month.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card revenue-card animate"
+                                    style="--delay: 580ms"
+                                >
+                                    <span class="small-label">Add-on</span>
+                                    <strong>100 / 200</strong>
+                                    <p>
+                                        Boost listing visibility based on owner
+                                        needs.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card revenue-card animate"
+                                    style="--delay: 640ms"
+                                >
+                                    <span class="small-label">Add-on</span>
+                                    <strong>150 pts</strong>
+                                    <p>
+                                        Generate a structured rental contract
+                                        draft.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-number-local">07 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 8">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Cost Structure</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Lean MVP spending with controlled operational risk.
+                        </h2>
+                        <p
+                            class="animate"
+                            style="--delay: 180ms; max-width: 890px"
+                        >
+                            The MVP focuses spending on product development, AI
+                            infrastructure, verification, payments, marketing,
+                            and operational trust.
+                        </p>
+
+                        <div class="cost-layout">
+                            <div class="card animate" style="--delay: 280ms">
+                                <h3>Spending areas</h3>
+
+                                <div class="cost-bars">
+                                    <div class="cost-row">
+                                        <span>Development</span>
+                                        <div class="bar">
+                                            <i style="width: 92%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Hosting & database</span>
+                                        <div class="bar">
+                                            <i style="width: 48%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>AI API usage</span>
+                                        <div class="bar">
+                                            <i style="width: 78%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>OCR processing</span>
+                                        <div class="bar">
+                                            <i style="width: 62%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Payment gateway</span>
+                                        <div class="bar">
+                                            <i style="width: 54%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Marketing campaigns</span>
+                                        <div class="bar">
+                                            <i style="width: 70%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Customer support</span>
+                                        <div class="bar">
+                                            <i style="width: 58%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Verification operations</span>
+                                        <div class="bar">
+                                            <i style="width: 67%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Legal templates</span>
+                                        <div class="bar">
+                                            <i style="width: 40%"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cost-card-grid">
+                                <div
+                                    class="card cost-mini animate"
+                                    style="--delay: 350ms"
+                                >
+                                    <div class="icon">🧑‍💻</div>
+                                    <h3>Build</h3>
+                                    <p>
+                                        Core platform, dashboards, AI flows,
+                                        payment, and admin tools.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card cost-mini animate"
+                                    style="--delay: 430ms"
+                                >
+                                    <div class="icon">🧠</div>
+                                    <h3>AI & OCR</h3>
+                                    <p>
+                                        Document checks, listing enhancement,
+                                        matching, and RAG assistant.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card cost-mini animate"
+                                    style="--delay: 510ms"
+                                >
+                                    <div class="icon">📣</div>
+                                    <h3>Launch</h3>
+                                    <p>
+                                        Local campaigns, owner onboarding, and
+                                        first trusted inventory.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="card cost-mini animate"
+                                    style="--delay: 590ms"
+                                >
+                                    <div class="icon">⚖️</div>
+                                    <h3>Trust Ops</h3>
+                                    <p>
+                                        Support, verification workflow, and
+                                        legal contract templates.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="usp-banner animate" style="--delay: 680ms">
+                            MVP goal: validate that users will pay points for
+                            safer, broker-free renting.
+                        </div>
+
+                        <div class="slide-number-local">08 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 9">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Expansion Plan</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            From Mansoura MVP to a national verified rental
+                            platform.
+                        </h2>
+
+                        <div class="roadmap">
+                            <div
+                                class="card phase-card animate"
+                                style="--delay: 220ms"
+                            >
+                                <div class="phase-num">01</div>
+                                <h3>Mansoura MVP</h3>
+                                <ul class="list">
+                                    <li>Validate demand.</li>
+                                    <li>Test OCR verification.</li>
+                                    <li>Test points payment.</li>
+                                    <li>Build trusted initial inventory.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="card phase-card animate"
+                                style="--delay: 320ms"
+                            >
+                                <div class="phase-num">02</div>
+                                <h3>Cairo New Cities</h3>
+                                <ul class="list">
+                                    <li>New Cairo.</li>
+                                    <li>Nasr City.</li>
+                                    <li>6th of October.</li>
+                                    <li>Sheikh Zayed.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="card phase-card animate"
+                                style="--delay: 420ms"
+                            >
+                                <div class="phase-num">03</div>
+                                <h3>Alexandria & Delta</h3>
+                                <ul class="list">
+                                    <li>Alexandria.</li>
+                                    <li>Tanta.</li>
+                                    <li>Zagazig.</li>
+                                    <li>Damietta.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="card phase-card animate"
+                                style="--delay: 520ms"
+                            >
+                                <div class="phase-num">04</div>
+                                <h3>National Platform</h3>
+                                <ul class="list">
+                                    <li>Verified rental marketplace.</li>
+                                    <li>AI rental workflow.</li>
+                                    <li>Market data insights.</li>
+                                    <li>Premium verification services.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="roadmap-line animate"
+                            style="--delay: 650ms"
+                        >
+                            Mansoura → Cairo New Cities → Alexandria & Delta →
+                            Egypt
+                        </div>
+
+                        <div class="slide-number-local">09 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 10">
+                    <div class="slide-frame">
+                        <div class="final-center">
+                            <div class="final-content">
+                                <div class="final-icon animate">🏡</div>
+                                <div
+                                    class="slide-kicker animate"
+                                    style="--delay: 100ms"
+                                >
+                                    Final Pitch
+                                </div>
+                                <h2
+                                    class="gradient-text animate"
+                                    style="--delay: 200ms"
+                                >
+                                    PropMatch AI is the future of renting
+                                    without brokers.
+                                </h2>
+
+                                <p
+                                    class="final-message animate"
+                                    style="--delay: 320ms"
+                                >
+                                    PropMatch AI is not another listing website.
+                                    It is an AI-powered rental workflow that
+                                    replaces broker friction with verification,
+                                    automation, and trust.
+                                </p>
+
+                                <div class="final-cards">
+                                    <div
+                                        class="card animate"
+                                        style="--delay: 440ms"
+                                    >
+                                        <div class="icon">✅</div>
+                                        <h3>Verification</h3>
+                                        <p>
+                                            Ownership and property data become
+                                            clearer before contact.
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        class="card animate"
+                                        style="--delay: 520ms"
+                                    >
+                                        <div class="icon">🤖</div>
+                                        <h3>Automation</h3>
+                                        <p>
+                                            AI handles matching, repetitive
+                                            questions, and listing quality.
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        class="card animate"
+                                        style="--delay: 600ms"
+                                    >
+                                        <div class="icon">💰</div>
+                                        <h3>Lower friction</h3>
+                                        <p>
+                                            Tenants connect directly and avoid
+                                            traditional broker commission.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="closing-tagline animate"
+                                    style="--delay: 720ms"
+                                >
+                                    Search smarter. Rent safer. Pay less.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-number-local">10 / 11</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 11">
+                    <div class="slide-frame">
+                        <div class="final-center">
+                            <div class="final-content">
+                                <div class="final-icon animate">🙏</div>
+                                <div class="slide-kicker animate" style="--delay: 100ms">
+                                    Closing
+                                </div>
+                                <h2 class="gradient-text animate" style="--delay: 200ms">
+                                    Thank You
+                                </h2>
+                                <p class="final-message animate" style="--delay: 320ms">
+                                    Thank you for your time and attention. We are ready to make renting in Egypt smarter, safer, and broker-free with PropMatch AI.
+                                </p>
+                                <div class="closing-tagline animate" style="--delay: 420ms">
+                                    Questions?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">11 / 11</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="controls">
+                <button
+                    class="control-btn"
+                    id="prevBtn"
+                    aria-label="Previous slide"
+                >
+                    ‹
+                </button>
+                <button
+                    class="control-btn"
+                    id="nextBtn"
+                    aria-label="Next slide"
+                >
+                    ›
+                </button>
+            </div>
+        </div>
+
+        <script>
+            const slidesContainer = document.getElementById("slides");
+            const slides = Array.from(document.querySelectorAll(".slide"));
+            const totalSlides = slides.length;
+            const currentSlideEl = document.getElementById("currentSlide");
+            const totalSlidesEl = document.getElementById("totalSlides");
+            const progressEl = document.getElementById("progress");
+            const nextBtn = document.getElementById("nextBtn");
+            const prevBtn = document.getElementById("prevBtn");
+
+            let current = 0;
+            let isAnimating = false;
+
+            totalSlidesEl.textContent = String(totalSlides).padStart(2, "0");
+
+            function goToSlide(index) {
+                if (isAnimating) return;
+
+                const nextIndex = Math.max(0, Math.min(index, totalSlides - 1));
+                if (nextIndex === current) return;
+
+                isAnimating = true;
+                current = nextIndex;
+                updatePresentation();
+
+                window.setTimeout(() => {
+                    isAnimating = false;
+                }, 850);
+            }
+
+            function updatePresentation() {
+                slidesContainer.style.transform = `translateX(-${current * 100}vw)`;
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle("active", index === current);
+                });
+
+                currentSlideEl.textContent = String(current + 1).padStart(
+                    2,
+                    "0",
+                );
+                progressEl.style.width = `${((current + 1) / totalSlides) * 100}%`;
+
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === totalSlides - 1;
+
+                prevBtn.style.opacity = current === 0 ? "0.45" : "1";
+                nextBtn.style.opacity =
+                    current === totalSlides - 1 ? "0.45" : "1";
+            }
+
+            function nextSlide() {
+                goToSlide(current + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(current - 1);
+            }
+
+            nextBtn.addEventListener("click", nextSlide);
+            prevBtn.addEventListener("click", prevSlide);
+
+            document.addEventListener("keydown", (event) => {
+                const key = event.key;
+
+                if (key === "ArrowRight" || key === " ") {
+                    event.preventDefault();
+                    nextSlide();
+                }
+
+                if (key === "ArrowLeft") {
+                    event.preventDefault();
+                    prevSlide();
+                }
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            document.addEventListener(
+                "touchstart",
+                (event) => {
+                    touchStartX = event.changedTouches[0].screenX;
+                },
+                { passive: true },
+            );
+
+            document.addEventListener(
+                "touchend",
+                (event) => {
+                    touchEndX = event.changedTouches[0].screenX;
+                    const delta = touchStartX - touchEndX;
+
+                    if (Math.abs(delta) > 60) {
+                        if (delta > 0) nextSlide();
+                        else prevSlide();
+                    }
+                },
+                { passive: true },
+            );
+
+            updatePresentation();
+        </script>
+    </body>
+</html>
