@@ -939,6 +939,523 @@
                 line-height: 1.35;
             }
 
+            /* Financial section (Slides 11-20): larger typography + fuller layout usage */
+            section[aria-label="Slide 11"],
+            section[aria-label="Slide 12"],
+            section[aria-label="Slide 13"],
+            section[aria-label="Slide 14"],
+            section[aria-label="Slide 15"],
+            section[aria-label="Slide 16"],
+            section[aria-label="Slide 17"],
+            section[aria-label="Slide 18"],
+            section[aria-label="Slide 19"],
+            section[aria-label="Slide 20"] {
+                --financial-body-size: 36px;
+                --financial-list-size: 40px;
+                --financial-h3-size: 50px;
+            }
+
+            section[aria-label="Slide 11"] .slide-frame,
+            section[aria-label="Slide 12"] .slide-frame,
+            section[aria-label="Slide 13"] .slide-frame,
+            section[aria-label="Slide 14"] .slide-frame,
+            section[aria-label="Slide 15"] .slide-frame,
+            section[aria-label="Slide 16"] .slide-frame,
+            section[aria-label="Slide 17"] .slide-frame,
+            section[aria-label="Slide 18"] .slide-frame,
+            section[aria-label="Slide 19"] .slide-frame,
+            section[aria-label="Slide 20"] .slide-frame {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            section[aria-label="Slide 11"] h2,
+            section[aria-label="Slide 12"] h2,
+            section[aria-label="Slide 13"] h2,
+            section[aria-label="Slide 14"] h2,
+            section[aria-label="Slide 15"] h2,
+            section[aria-label="Slide 16"] h2,
+            section[aria-label="Slide 17"] h2,
+            section[aria-label="Slide 18"] h2,
+            section[aria-label="Slide 19"] h2,
+            section[aria-label="Slide 20"] h2 {
+                font-size: clamp(46px, 4.9vw, 78px);
+                margin-bottom: 20px;
+            }
+
+            section[aria-label="Slide 11"] p,
+            section[aria-label="Slide 12"] p,
+            section[aria-label="Slide 13"] p,
+            section[aria-label="Slide 14"] p,
+            section[aria-label="Slide 15"] p,
+            section[aria-label="Slide 16"] p,
+            section[aria-label="Slide 17"] p,
+            section[aria-label="Slide 18"] p,
+            section[aria-label="Slide 19"] p,
+            section[aria-label="Slide 20"] p {
+                font-size: var(--financial-body-size);
+                line-height: 1.5;
+            }
+
+            section[aria-label="Slide 11"] h3,
+            section[aria-label="Slide 12"] h3,
+            section[aria-label="Slide 13"] h3,
+            section[aria-label="Slide 14"] h3,
+            section[aria-label="Slide 15"] h3,
+            section[aria-label="Slide 16"] h3,
+            section[aria-label="Slide 17"] h3,
+            section[aria-label="Slide 18"] h3,
+            section[aria-label="Slide 19"] h3,
+            section[aria-label="Slide 20"] h3 {
+                font-size: var(--financial-h3-size);
+                line-height: 1.2;
+                margin-bottom: 12px;
+            }
+
+            section[aria-label="Slide 11"] .list,
+            section[aria-label="Slide 12"] .list,
+            section[aria-label="Slide 13"] .list,
+            section[aria-label="Slide 14"] .list,
+            section[aria-label="Slide 15"] .list,
+            section[aria-label="Slide 16"] .list,
+            section[aria-label="Slide 17"] .list,
+            section[aria-label="Slide 18"] .list,
+            section[aria-label="Slide 19"] .list,
+            section[aria-label="Slide 20"] .list {
+                font-size: var(--financial-list-size);
+                line-height: 1.5;
+                gap: 10px;
+                font-weight: 700;
+                font-variant-numeric: tabular-nums;
+            }
+
+            section[aria-label="Slide 11"] .grid,
+            section[aria-label="Slide 12"] .grid,
+            section[aria-label="Slide 13"] .grid,
+            section[aria-label="Slide 14"] .grid,
+            section[aria-label="Slide 15"] .grid,
+            section[aria-label="Slide 16"] .grid,
+            section[aria-label="Slide 17"] .grid,
+            section[aria-label="Slide 18"] .grid,
+            section[aria-label="Slide 19"] .grid,
+            section[aria-label="Slide 20"] .grid {
+                gap: 22px;
+            }
+
+            section[aria-label="Slide 11"] .card,
+            section[aria-label="Slide 12"] .card,
+            section[aria-label="Slide 13"] .card,
+            section[aria-label="Slide 14"] .card,
+            section[aria-label="Slide 15"] .card,
+            section[aria-label="Slide 16"] .card,
+            section[aria-label="Slide 17"] .card,
+            section[aria-label="Slide 18"] .card,
+            section[aria-label="Slide 19"] .card,
+            section[aria-label="Slide 20"] .card {
+                padding: 24px 26px;
+                min-height: 220px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            section[aria-label="Slide 11"] strong,
+            section[aria-label="Slide 12"] strong,
+            section[aria-label="Slide 13"] strong,
+            section[aria-label="Slide 14"] strong,
+            section[aria-label="Slide 15"] strong,
+            section[aria-label="Slide 16"] strong,
+            section[aria-label="Slide 17"] strong,
+            section[aria-label="Slide 18"] strong,
+            section[aria-label="Slide 19"] strong,
+            section[aria-label="Slide 20"] strong {
+                font-size: 1em;
+                line-height: 1.1;
+                font-weight: 950;
+                letter-spacing: -0.02em;
+                color: #0b1220;
+                font-variant-numeric: tabular-nums;
+            }
+
+            /* Two-card financial slides: use empty space better */
+            section[aria-label="Slide 12"] .grid.grid-2,
+            section[aria-label="Slide 13"] .grid.grid-2,
+            section[aria-label="Slide 14"] .grid.grid-2,
+            section[aria-label="Slide 16"] .grid.grid-2,
+            section[aria-label="Slide 18"] .grid.grid-2,
+            section[aria-label="Slide 21"] .grid.grid-2 {
+                flex: 1;
+                align-content: stretch;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 28px;
+            }
+
+            section[aria-label="Slide 12"] .grid.grid-2 .card,
+            section[aria-label="Slide 13"] .grid.grid-2 .card,
+            section[aria-label="Slide 14"] .grid.grid-2 .card,
+            section[aria-label="Slide 16"] .grid.grid-2 .card,
+            section[aria-label="Slide 18"] .grid.grid-2 .card,
+            section[aria-label="Slide 21"] .grid.grid-2 .card {
+                min-height: 430px;
+                padding: 36px 34px;
+                justify-content: center;
+            }
+
+            section[aria-label="Slide 12"] h3,
+            section[aria-label="Slide 13"] h3,
+            section[aria-label="Slide 14"] h3,
+            section[aria-label="Slide 16"] h3,
+            section[aria-label="Slide 18"] h3,
+            section[aria-label="Slide 21"] h3 {
+                font-size: 40px;
+                line-height: 1.15;
+            }
+
+            section[aria-label="Slide 12"] .list,
+            section[aria-label="Slide 13"] .list,
+            section[aria-label="Slide 14"] .list,
+            section[aria-label="Slide 16"] .list,
+            section[aria-label="Slide 18"] .list,
+            section[aria-label="Slide 21"] .list {
+                font-size: 29px;
+                line-height: 1.45;
+                gap: 12px;
+            }
+
+            section[aria-label="Slide 12"] p,
+            section[aria-label="Slide 13"] p,
+            section[aria-label="Slide 14"] p,
+            section[aria-label="Slide 16"] p,
+            section[aria-label="Slide 18"] p,
+            section[aria-label="Slide 21"] p {
+                font-size: 28px;
+                line-height: 1.4;
+            }
+
+            section[aria-label="Slide 12"] strong,
+            section[aria-label="Slide 13"] strong,
+            section[aria-label="Slide 14"] strong,
+            section[aria-label="Slide 16"] strong,
+            section[aria-label="Slide 18"] strong,
+            section[aria-label="Slide 21"] strong {
+                font-size: 1em;
+            }
+
+            /* Final hard override: make ALL text in newly added slides much bigger */
+            section[aria-label="Slide 11"] h2,
+            section[aria-label="Slide 12"] h2,
+            section[aria-label="Slide 13"] h2,
+            section[aria-label="Slide 14"] h2,
+            section[aria-label="Slide 15"] h2,
+            section[aria-label="Slide 16"] h2,
+            section[aria-label="Slide 17"] h2,
+            section[aria-label="Slide 18"] h2,
+            section[aria-label="Slide 19"] h2,
+            section[aria-label="Slide 20"] h2,
+            section[aria-label="Slide 21"] h2 {
+                font-size: 48px !important;
+                line-height: 1.08 !important;
+            }
+
+            section[aria-label="Slide 11"] h3,
+            section[aria-label="Slide 12"] h3,
+            section[aria-label="Slide 13"] h3,
+            section[aria-label="Slide 14"] h3,
+            section[aria-label="Slide 15"] h3,
+            section[aria-label="Slide 16"] h3,
+            section[aria-label="Slide 17"] h3,
+            section[aria-label="Slide 18"] h3,
+            section[aria-label="Slide 19"] h3,
+            section[aria-label="Slide 20"] h3,
+            section[aria-label="Slide 21"] h3 {
+                font-size: 34px !important;
+                line-height: 1.12 !important;
+            }
+
+            section[aria-label="Slide 11"] p,
+            section[aria-label="Slide 12"] p,
+            section[aria-label="Slide 13"] p,
+            section[aria-label="Slide 14"] p,
+            section[aria-label="Slide 15"] p,
+            section[aria-label="Slide 16"] p,
+            section[aria-label="Slide 17"] p,
+            section[aria-label="Slide 18"] p,
+            section[aria-label="Slide 19"] p,
+            section[aria-label="Slide 20"] p,
+            section[aria-label="Slide 21"] p,
+            section[aria-label="Slide 11"] li,
+            section[aria-label="Slide 12"] li,
+            section[aria-label="Slide 13"] li,
+            section[aria-label="Slide 14"] li,
+            section[aria-label="Slide 15"] li,
+            section[aria-label="Slide 16"] li,
+            section[aria-label="Slide 17"] li,
+            section[aria-label="Slide 18"] li,
+            section[aria-label="Slide 19"] li,
+            section[aria-label="Slide 20"] li,
+            section[aria-label="Slide 21"] li {
+                font-size: 27px !important;
+                line-height: 1.35 !important;
+            }
+
+            section[aria-label="Slide 22"] h2,
+            section[aria-label="Slide 23"] h2,
+            section[aria-label="Slide 24"] h2 {
+                font-size: 48px !important;
+                line-height: 1.08 !important;
+            }
+
+            section[aria-label="Slide 22"] h3,
+            section[aria-label="Slide 23"] h3,
+            section[aria-label="Slide 24"] h3 {
+                font-size: 34px !important;
+                line-height: 1.12 !important;
+            }
+
+            section[aria-label="Slide 22"] p,
+            section[aria-label="Slide 23"] p,
+            section[aria-label="Slide 24"] p,
+            section[aria-label="Slide 22"] li,
+            section[aria-label="Slide 23"] li,
+            section[aria-label="Slide 24"] li {
+                font-size: 27px !important;
+                line-height: 1.35 !important;
+            }
+
+            section[aria-label="Slide 22"] strong,
+            section[aria-label="Slide 23"] strong,
+            section[aria-label="Slide 24"] strong {
+                font-size: 1em;
+                font-weight: 950;
+            }
+
+            /* Slide 21 fit fix: prevent bottom cropping */
+            section[aria-label="Slide 21"] .slide-frame {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            section[aria-label="Slide 21"] h2 {
+                font-size: 42px !important;
+                margin-bottom: 10px !important;
+            }
+
+            section[aria-label="Slide 21"] h3 {
+                font-size: 30px !important;
+                margin-bottom: 8px !important;
+            }
+
+            section[aria-label="Slide 21"] p,
+            section[aria-label="Slide 21"] li {
+                font-size: 23px !important;
+                line-height: 1.28 !important;
+            }
+
+            section[aria-label="Slide 21"] .grid {
+                gap: 14px !important;
+            }
+
+            section[aria-label="Slide 21"] .card {
+                min-height: 0 !important;
+                padding: 20px 22px !important;
+            }
+
+            section[aria-label="Slide 21"] .grid.grid-2 .card {
+                min-height: 0 !important;
+            }
+
+            /* Visual enhancement pass for newly added financial slides (11-24) */
+            section[aria-label="Slide 11"] .slide-frame,
+            section[aria-label="Slide 12"] .slide-frame,
+            section[aria-label="Slide 13"] .slide-frame,
+            section[aria-label="Slide 14"] .slide-frame,
+            section[aria-label="Slide 15"] .slide-frame,
+            section[aria-label="Slide 16"] .slide-frame,
+            section[aria-label="Slide 17"] .slide-frame,
+            section[aria-label="Slide 18"] .slide-frame,
+            section[aria-label="Slide 19"] .slide-frame,
+            section[aria-label="Slide 20"] .slide-frame,
+            section[aria-label="Slide 21"] .slide-frame,
+            section[aria-label="Slide 22"] .slide-frame,
+            section[aria-label="Slide 23"] .slide-frame,
+            section[aria-label="Slide 24"] .slide-frame {
+                background:
+                    radial-gradient(
+                        circle at 12% 12%,
+                        rgba(37, 99, 235, 0.1),
+                        transparent 34%
+                    ),
+                    radial-gradient(
+                        circle at 88% 85%,
+                        rgba(20, 184, 166, 0.12),
+                        transparent 36%
+                    ),
+                    linear-gradient(
+                        140deg,
+                        rgba(255, 255, 255, 0.95),
+                        rgba(248, 252, 255, 0.9)
+                    );
+            }
+
+            section[aria-label="Slide 11"] .slide-kicker,
+            section[aria-label="Slide 12"] .slide-kicker,
+            section[aria-label="Slide 13"] .slide-kicker,
+            section[aria-label="Slide 14"] .slide-kicker,
+            section[aria-label="Slide 15"] .slide-kicker,
+            section[aria-label="Slide 16"] .slide-kicker,
+            section[aria-label="Slide 17"] .slide-kicker,
+            section[aria-label="Slide 18"] .slide-kicker,
+            section[aria-label="Slide 19"] .slide-kicker,
+            section[aria-label="Slide 20"] .slide-kicker,
+            section[aria-label="Slide 21"] .slide-kicker,
+            section[aria-label="Slide 22"] .slide-kicker,
+            section[aria-label="Slide 23"] .slide-kicker,
+            section[aria-label="Slide 24"] .slide-kicker {
+                background: linear-gradient(
+                    90deg,
+                    rgba(37, 99, 235, 0.14),
+                    rgba(20, 184, 166, 0.12)
+                );
+                border-color: rgba(37, 99, 235, 0.22);
+                color: #1e40af;
+            }
+
+            section[aria-label="Slide 11"] .card,
+            section[aria-label="Slide 12"] .card,
+            section[aria-label="Slide 13"] .card,
+            section[aria-label="Slide 14"] .card,
+            section[aria-label="Slide 15"] .card,
+            section[aria-label="Slide 16"] .card,
+            section[aria-label="Slide 17"] .card,
+            section[aria-label="Slide 18"] .card,
+            section[aria-label="Slide 19"] .card,
+            section[aria-label="Slide 20"] .card,
+            section[aria-label="Slide 21"] .card,
+            section[aria-label="Slide 22"] .card,
+            section[aria-label="Slide 23"] .card,
+            section[aria-label="Slide 24"] .card {
+                border: 1px solid rgba(37, 99, 235, 0.14);
+                box-shadow:
+                    0 16px 34px rgba(15, 23, 42, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                position: relative;
+                overflow: hidden;
+            }
+
+            section[aria-label="Slide 11"] .card::before,
+            section[aria-label="Slide 12"] .card::before,
+            section[aria-label="Slide 13"] .card::before,
+            section[aria-label="Slide 14"] .card::before,
+            section[aria-label="Slide 15"] .card::before,
+            section[aria-label="Slide 16"] .card::before,
+            section[aria-label="Slide 17"] .card::before,
+            section[aria-label="Slide 18"] .card::before,
+            section[aria-label="Slide 19"] .card::before,
+            section[aria-label="Slide 20"] .card::before,
+            section[aria-label="Slide 21"] .card::before,
+            section[aria-label="Slide 22"] .card::before,
+            section[aria-label="Slide 23"] .card::before,
+            section[aria-label="Slide 24"] .card::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 7px;
+                background: linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #14b8a6,
+                    #0ea5e9
+                );
+                opacity: 0.95;
+            }
+
+            section[aria-label="Slide 11"] .card:nth-child(2)::before,
+            section[aria-label="Slide 12"] .card:nth-child(2)::before,
+            section[aria-label="Slide 13"] .card:nth-child(2)::before,
+            section[aria-label="Slide 14"] .card:nth-child(2)::before,
+            section[aria-label="Slide 15"] .card:nth-child(2)::before,
+            section[aria-label="Slide 16"] .card:nth-child(2)::before,
+            section[aria-label="Slide 17"] .card:nth-child(2)::before,
+            section[aria-label="Slide 18"] .card:nth-child(2)::before,
+            section[aria-label="Slide 19"] .card:nth-child(2)::before,
+            section[aria-label="Slide 20"] .card:nth-child(2)::before,
+            section[aria-label="Slide 21"] .card:nth-child(2)::before,
+            section[aria-label="Slide 22"] .card:nth-child(2)::before,
+            section[aria-label="Slide 23"] .card:nth-child(2)::before,
+            section[aria-label="Slide 24"] .card:nth-child(2)::before {
+                background: linear-gradient(
+                    90deg,
+                    #14b8a6,
+                    #10b981,
+                    #22c55e
+                );
+            }
+
+            section[aria-label="Slide 11"] .card:nth-child(3)::before,
+            section[aria-label="Slide 12"] .card:nth-child(3)::before,
+            section[aria-label="Slide 13"] .card:nth-child(3)::before,
+            section[aria-label="Slide 14"] .card:nth-child(3)::before,
+            section[aria-label="Slide 15"] .card:nth-child(3)::before,
+            section[aria-label="Slide 16"] .card:nth-child(3)::before,
+            section[aria-label="Slide 17"] .card:nth-child(3)::before,
+            section[aria-label="Slide 18"] .card:nth-child(3)::before,
+            section[aria-label="Slide 19"] .card:nth-child(3)::before,
+            section[aria-label="Slide 20"] .card:nth-child(3)::before,
+            section[aria-label="Slide 21"] .card:nth-child(3)::before,
+            section[aria-label="Slide 22"] .card:nth-child(3)::before,
+            section[aria-label="Slide 23"] .card:nth-child(3)::before,
+            section[aria-label="Slide 24"] .card:nth-child(3)::before {
+                background: linear-gradient(
+                    90deg,
+                    #f59e0b,
+                    #f97316,
+                    #ef4444
+                );
+            }
+
+            section[aria-label="Slide 11"] li,
+            section[aria-label="Slide 12"] li,
+            section[aria-label="Slide 13"] li,
+            section[aria-label="Slide 14"] li,
+            section[aria-label="Slide 15"] li,
+            section[aria-label="Slide 16"] li,
+            section[aria-label="Slide 17"] li,
+            section[aria-label="Slide 18"] li,
+            section[aria-label="Slide 19"] li,
+            section[aria-label="Slide 20"] li,
+            section[aria-label="Slide 21"] li,
+            section[aria-label="Slide 22"] li,
+            section[aria-label="Slide 23"] li,
+            section[aria-label="Slide 24"] li {
+                color: #1e293b;
+            }
+
+            section[aria-label="Slide 11"] strong,
+            section[aria-label="Slide 12"] strong,
+            section[aria-label="Slide 13"] strong,
+            section[aria-label="Slide 14"] strong,
+            section[aria-label="Slide 15"] strong,
+            section[aria-label="Slide 16"] strong,
+            section[aria-label="Slide 17"] strong,
+            section[aria-label="Slide 18"] strong,
+            section[aria-label="Slide 19"] strong,
+            section[aria-label="Slide 20"] strong,
+            section[aria-label="Slide 21"] strong,
+            section[aria-label="Slide 22"] strong,
+            section[aria-label="Slide 23"] strong,
+            section[aria-label="Slide 24"] strong {
+                color: #0f172a;
+                background: linear-gradient(
+                    180deg,
+                    transparent 58%,
+                    rgba(37, 99, 235, 0.16) 58%
+                );
+                padding: 0 2px;
+            }
+
             .small-label {
                 display: inline-flex;
                 padding: 7px 11px;
@@ -1162,6 +1679,37 @@
                 font-size: 14px;
             }
 
+            .jump-wrap {
+                position: fixed;
+                left: 50%;
+                bottom: 24px;
+                transform: translateX(-50%);
+                z-index: 20;
+                width: min(760px, calc(100vw - 190px));
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 14px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.8);
+                border: 1px solid rgba(15, 23, 42, 0.08);
+                box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+                backdrop-filter: blur(14px);
+            }
+
+            .jump-wrap label {
+                font-size: 12px;
+                font-weight: 900;
+                color: #334155;
+                white-space: nowrap;
+            }
+
+            .jump-slider {
+                width: 100%;
+                accent-color: #2563eb;
+                cursor: pointer;
+            }
+
             .progress-wrap {
                 position: fixed;
                 left: 28px;
@@ -1327,7 +1875,8 @@
 
                 .controls,
                 .progress-wrap,
-                .slide-counter {
+                .slide-counter,
+                .jump-wrap {
                     display: none;
                 }
             }
@@ -1344,7 +1893,8 @@
                 body::before,
                 .controls,
                 .progress-wrap,
-                .slide-counter {
+                .slide-counter,
+                .jump-wrap {
                     display: none !important;
                 }
 
@@ -1393,7 +1943,7 @@
 
             <div class="slide-counter">
                 <span id="currentSlide">01</span> /
-                <span id="totalSlides">11</span>
+                <span id="totalSlides">25</span>
             </div>
 
             <div class="slides" id="slides">
@@ -1429,7 +1979,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="slide-number-local">01 / 11</div>
+                        <div class="slide-number-local">01 / 25</div>
                     </div>
                 </section>
 
@@ -1498,7 +2048,7 @@
                             </div>
                         </div>
 
-                        <div class="slide-number-local">02 / 11</div>
+                        <div class="slide-number-local">02 / 25</div>
                     </div>
                 </section>
 
@@ -1582,7 +2132,7 @@
                             </div>
                         </div>
 
-                        <div class="slide-number-local">03 / 11</div>
+                        <div class="slide-number-local">03 / 25</div>
                     </div>
                 </section>
 
@@ -1743,7 +2293,7 @@
                             </div>
                         </div>
 
-                        <div class="slide-number-local">04 / 11</div>
+                        <div class="slide-number-local">04 / 25</div>
                     </div>
                 </section>
 
@@ -1929,7 +2479,7 @@
                             discovery to contract.
                         </div>
 
-                        <div class="slide-number-local">05 / 11</div>
+                        <div class="slide-number-local">05 / 25</div>
                     </div>
                 </section>
 
@@ -2021,7 +2571,7 @@
                             verified properties and AI guidance.
                         </div>
 
-                        <div class="slide-number-local">06 / 11</div>
+                        <div class="slide-number-local">06 / 25</div>
                     </div>
                 </section>
 
@@ -2142,7 +2692,7 @@
                             </div>
                         </div>
 
-                        <div class="slide-number-local">07 / 11</div>
+                        <div class="slide-number-local">07 / 25</div>
                     </div>
                 </section>
 
@@ -2279,7 +2829,7 @@
                             safer, broker-free renting.
                         </div>
 
-                        <div class="slide-number-local">08 / 11</div>
+                        <div class="slide-number-local">08 / 25</div>
                     </div>
                 </section>
 
@@ -2357,7 +2907,7 @@
                             Egypt
                         </div>
 
-                        <div class="slide-number-local">09 / 11</div>
+                        <div class="slide-number-local">09 / 25</div>
                     </div>
                 </section>
 
@@ -2437,11 +2987,522 @@
                             </div>
                         </div>
 
-                        <div class="slide-number-local">10 / 11</div>
+                        <div class="slide-number-local">10 / 25</div>
                     </div>
                 </section>
 
                 <section class="slide" aria-label="Slide 11">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Financial Model</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Assumption for "1000 clients"
+                        </h2>
+                        <p class="animate" style="--delay: 180ms; max-width: 1000px; margin-bottom: 24px;">
+                            Because PropMatch has two sides, this model assumes a 1000-client mix between tenants and owners.
+                        </p>
+                        <div class="grid grid-2" style="margin-bottom: 22px;">
+                            <div class="card animate" style="--delay: 260ms;">
+                                <h3>User Type Split</h3>
+                                <ul class="list">
+                                    <li>Tenants: 800</li>
+                                    <li>Owners: <strong>200</strong></li>
+                                    <li>Total clients: 1000</li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 340ms;">
+                                <h3>Point Conversion</h3>
+                                <ul class="list">
+                                    <li>1 point ≈ 1 EGP</li>
+                                    <li>All revenue figures shown in EGP</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card animate" style="--delay: 420ms;">
+                            <h3>MVP Pricing Assumptions</h3>
+                            <div class="grid grid-2">
+                                <ul class="list">
+                                    <li>Tenant unlock owner details: 75 points</li>
+                                    <li>Tenant viewing request / Direct Connect: 100 points</li>
+                                    <li>Owner listing activation: 270 points</li>
+                                </ul>
+                                <ul class="list">
+                                    <li>Boost: 100-200 points</li>
+                                    <li>Contract generation: 150 points</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">11 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 12">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Revenue (1/4)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            A) Owner revenue from listing activation
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 18px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Assumption</h3>
+                                <ul class="list">
+                                    <li>Each owner publishes <strong>1 listing</strong></li>
+                                    <li>Mandatory listing activation fee: <strong>270 points</strong></li>
+                                    <li>Owners: <strong>200</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Calculation</h3>
+                                <p>200 owners × 270 EGP = <strong>54,000 EGP</strong></p>
+                                <p style="margin-top: 14px;">Owner activation revenue: <strong>54,000 EGP</strong></p>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">12 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 13">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Revenue (2/4)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            B) Tenant revenue from unlocks and viewing requests
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 18px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Usage assumptions from 800 tenants</h3>
+                                <ul class="list">
+                                    <li><strong>50%</strong> unlock owner details</li>
+                                    <li><strong>25%</strong> request viewing / Direct Connect</li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Calculation</h3>
+                                <ul class="list">
+                                    <li>Unlock owner details: 400 × 75 EGP = 30,000 EGP</li>
+                                    <li>Viewing requests: 200 × 100 EGP = 20,000 EGP</li>
+                                </ul>
+                                <p style="margin-top: 12px;">Tenant revenue: <strong>50,000 EGP</strong></p>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">13 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 14">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Revenue (3/4)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            C) Add-ons revenue (boost + contract generation)
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 18px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Assumptions from 200 owners</h3>
+                                <ul class="list">
+                                    <li><strong>30%</strong> buy boost = <strong>60 owners</strong></li>
+                                    <li>Average boost = <strong>150 points</strong></li>
+                                    <li><strong>20%</strong> generate contract = <strong>40 owners</strong></li>
+                                    <li>Contract generation = <strong>150 points</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Calculation</h3>
+                                <ul class="list">
+                                    <li>Boost revenue: 60 × 150 EGP = 9,000 EGP</li>
+                                    <li>Contract generation: 40 × 150 EGP = 6,000 EGP</li>
+                                </ul>
+                                <p style="margin-top: 12px;">Add-ons revenue: <strong>15,000 EGP</strong></p>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">14 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 15">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Revenue (4/4)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Total expected revenue for 1000 clients
+                        </h2>
+                        <div class="grid grid-3" style="margin-top: 22px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Owner listing activation</h3>
+                                <p><strong>54,000 EGP</strong></p>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Tenant unlock/contact/viewing</h3>
+                                <p><strong>50,000 EGP</strong></p>
+                            </div>
+                            <div class="card animate" style="--delay: 380ms;">
+                                <h3>Boost + contract add-ons</h3>
+                                <p><strong>15,000 EGP</strong></p>
+                            </div>
+                        </div>
+                        <div class="card animate" style="--delay: 460ms; margin-top: 20px;">
+                            <h3>Total Revenue</h3>
+                            <p><strong>119,000 EGP</strong></p>
+                            <p style="margin-top: 8px;">Expected gross revenue is approximately <strong>119,000 EGP</strong>.</p>
+                        </div>
+                        <div class="slide-number-local">15 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 16">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Cost Model (1/3)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            AI and verification operating costs
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 20px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>A) OCR verification cost</h3>
+                                <ul class="list">
+                                    <li><strong>200 owners</strong></li>
+                                    <li><strong>2 documents</strong> per owner</li>
+                                    <li>OCR per document: <strong>3-7 EGP</strong> (average <strong>5 EGP</strong>)</li>
+                                    <li>200 × 2 × 5 = 2,000 EGP</li>
+                                    <li>Estimated OCR cost: <strong>2,000 EGP</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>B) Owner RAG chat cost</h3>
+                                <ul class="list">
+                                    <li><strong>200 listings</strong></li>
+                                    <li><strong>30</strong> AI replies/listing/month = <strong>6,000 replies</strong></li>
+                                    <li>Cost per reply: <strong>0.5-1 EGP</strong> (average <strong>0.75 EGP</strong>)</li>
+                                    <li>6,000 × 0.75 = 4,500 EGP</li>
+                                    <li>Estimated owner AI chat cost: <strong>4,500 EGP</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">16 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 17">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Cost Model (2/3)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Tenant AI, listing enhancement, and contracts
+                        </h2>
+                        <div class="grid grid-3" style="margin-top: 20px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>C) Tenant matchmaker chat</h3>
+                                <ul class="list">
+                                    <li><strong>800 tenants</strong></li>
+                                    <li><strong>50%</strong> use AI = <strong>400 sessions</strong></li>
+                                    <li>Cost per session: <strong>2-5 EGP</strong> (average <strong>3 EGP</strong>)</li>
+                                    <li>400 × 3 = 1,200 EGP</li>
+                                    <li>Estimated tenant AI cost: <strong>1,200 EGP</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>D) Listing enhancement</h3>
+                                <ul class="list">
+                                    <li><strong>200 listings</strong></li>
+                                    <li>AI title + description enhancement</li>
+                                    <li>Cost per listing: <strong>1-3 EGP</strong> (average <strong>2 EGP</strong>)</li>
+                                    <li>200 × 2 = 400 EGP</li>
+                                    <li>Estimated cost: <strong>400 EGP</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 380ms;">
+                                <h3>E) Contract generation</h3>
+                                <ul class="list">
+                                    <li><strong>40 contracts</strong> generated</li>
+                                    <li>Cost per contract: <strong>5-20 EGP</strong> (average <strong>10 EGP</strong>)</li>
+                                    <li>40 × 10 = 400 EGP</li>
+                                    <li>Estimated cost: <strong>400 EGP</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">17 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 18">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Cost Model (3/3)</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Infrastructure, notifications, payments, and operations
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 20px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>F) Hosting / DB / storage / backend</h3>
+                                <ul class="list">
+                                    <li>Estimated range: <strong>5,000-12,000 EGP/month</strong></li>
+                                    <li>Mid estimate used: <strong>8,000 EGP</strong></li>
+                                </ul>
+                                <h3 style="margin-top: 14px;">G) SMS / WhatsApp / email</h3>
+                                <ul class="list">
+                                    <li>Estimated range: <strong>2,000-5,000 EGP</strong></li>
+                                    <li>Mid estimate used: <strong>3,000 EGP</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>H) Payment gateway fees</h3>
+                                <ul class="list">
+                                    <li>Fee rate assumption: <strong>2.5%-3%</strong></li>
+                                    <li>Used: <strong>3%</strong> on <strong>119,000 EGP</strong> revenue</li>
+                                    <li>119,000 × 3% = <strong>3,570 EGP</strong></li>
+                                </ul>
+                                <h3 style="margin-top: 14px;">I) Support / moderation / manual review</h3>
+                                <ul class="list">
+                                    <li><strong>20%</strong> of owners need manual review = <strong>40 reviews</strong></li>
+                                    <li>Estimated range: <strong>8,000-15,000 EGP</strong></li>
+                                    <li>Mid estimate used: <strong>10,000 EGP</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">18 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 19">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Profitability</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Total cost, profit, and gross margin
+                        </h2>
+                        <div class="grid grid-3" style="margin-top: 20px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Total estimated cost</h3>
+                                <p><strong>33,070 EGP</strong></p>
+                                <p style="margin-top: 8px;">Platform cost for 1000 clients is approximately 33,000 EGP.</p>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Estimated gross profit</h3>
+                                <p><strong>85,930 EGP</strong></p>
+                                <p style="margin-top: 8px;">119,000 - 33,070 = 85,930 EGP (approximately 86,000 EGP).</p>
+                            </div>
+                            <div class="card animate" style="--delay: 380ms;">
+                                <h3>Gross margin</h3>
+                                <p><strong>72.2%</strong></p>
+                                <p style="margin-top: 8px;">85,930 / 119,000 = 72.2% (approximately 72%).</p>
+                            </div>
+                        </div>
+                        <p class="animate" style="--delay: 460ms; margin-top: 14px;">
+                            This is good because the AI/API costs are relatively low compared to the value of real estate actions.
+                        </p>
+                        <div class="slide-number-local">19 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 20">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Scenarios and CAC</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Conservative, realistic, optimistic + marketing impact
+                        </h2>
+                        <p class="animate" style="--delay: 170ms; margin-bottom: 8px;">
+                            Important note: marketing acquisition cost is not included in the core operating cost.
+                        </p>
+                        <div class="grid grid-3" style="margin-top: 20px; margin-bottom: 16px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Conservative</h3>
+                                <ul class="list">
+                                    <li>Revenue: 75,000 EGP</li>
+                                    <li>Cost: 35,000 EGP</li>
+                                    <li>Profit: 40,000 EGP</li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Realistic</h3>
+                                <ul class="list">
+                                    <li>Revenue: 119,000 EGP</li>
+                                    <li>Cost: 33,000 EGP</li>
+                                    <li>Profit: 86,000 EGP</li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 380ms;">
+                                <h3>Optimistic</h3>
+                                <ul class="list">
+                                    <li>Revenue: 160,000 EGP</li>
+                                    <li>Cost: 40,000 EGP</li>
+                                    <li>Profit: 120,000 EGP</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="card animate" style="--delay: 460ms;">
+                                <h3>CAC sensitivity (30 EGP/user)</h3>
+                                <ul class="list">
+                                    <li>Marketing cost: 1000 × 30 = 30,000 EGP</li>
+                                    <li>Adjusted profit: 85,930 - 30,000 = 55,930 EGP</li>
+                                    <li>Profit after marketing: approximately 56,000 EGP</li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 540ms;">
+                                <h3>CAC sensitivity (50 EGP/user)</h3>
+                                <ul class="list">
+                                    <li>Marketing cost: 1000 × 50 = 50,000 EGP</li>
+                                    <li>Adjusted profit: 85,930 - 50,000 = 35,930 EGP</li>
+                                    <li>Profit after marketing: approximately 36,000 EGP</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">20 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 21">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Final Summary</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Final summary for 1000 clients
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 18px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Client mix</h3>
+                                <ul class="list">
+                                    <li>Total clients: <strong>1000</strong></li>
+                                    <li>Tenants: <strong>800</strong></li>
+                                    <li>Owners: <strong>200</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Core economics</h3>
+                                <ul class="list">
+                                    <li>Estimated revenue: <strong>119,000 EGP</strong></li>
+                                    <li>Estimated operating cost: <strong>33,000 EGP</strong></li>
+                                    <li>Estimated gross profit: <strong>86,000 EGP</strong></li>
+                                    <li>Gross margin: <strong>approximately 72%</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid grid-2" style="margin-top: 16px;">
+                            <div class="card animate" style="--delay: 380ms;">
+                                <h3>Profit after CAC = 30 EGP/user</h3>
+                                <p><strong>approximately 56,000 EGP</strong></p>
+                            </div>
+                            <div class="card animate" style="--delay: 460ms;">
+                                <h3>Profit after CAC = 50 EGP/user</h3>
+                                <p><strong>approximately 36,000 EGP</strong></p>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">21 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 22">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Campaign Model</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            50% of premium actions
+                        </h2>
+                        <p class="animate" style="--delay: 170ms; margin-bottom: 12px;">
+                            This makes the campaign attractive while still generating cash.
+                        </p>
+                        <div class="grid grid-3" style="margin-top: 12px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Unlock owner details</h3>
+                                <ul class="list">
+                                    <li>Cost: <strong>75</strong></li>
+                                    <li>Max Free Points Used: <strong>35</strong></li>
+                                    <li>User Pays: <strong>40</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Request viewing</h3>
+                                <ul class="list">
+                                    <li>Cost: <strong>100</strong></li>
+                                    <li>Max Free Points Used: <strong>50</strong></li>
+                                    <li>User Pays: <strong>50</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 380ms;">
+                                <h3>Owner activation</h3>
+                                <ul class="list">
+                                    <li>Cost: <strong>270</strong></li>
+                                    <li>Max Free Points Used: <strong>135</strong></li>
+                                    <li>User Pays: <strong>135</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid grid-2" style="margin-top: 16px;">
+                            <div class="card animate" style="--delay: 460ms;">
+                                <h3>Boost</h3>
+                                <ul class="list">
+                                    <li>Cost: <strong>200</strong></li>
+                                    <li>Max Free Points Used: <strong>100</strong></li>
+                                    <li>User Pays: <strong>100</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 540ms;">
+                                <h3>Contract generation</h3>
+                                <ul class="list">
+                                    <li>Cost: <strong>150</strong></li>
+                                    <li>Max Free Points Used: <strong>75</strong></li>
+                                    <li>User Pays: <strong>75</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">22 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 23">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">Recalculation</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            Recalculation with 50% free-point limit
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 18px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Equation flow</h3>
+                                <ul class="list">
+                                    <li>Previously expected revenue: <strong>119,000 EGP</strong></li>
+                                    <li>If free points cover 50%, cash revenue becomes:</li>
+                                    <li><strong>119,000 × 50% = 59,500 EGP</strong></li>
+                                    <li>Operating cost is still around: <strong>29,500 EGP</strong></li>
+                                    <li><strong>59,500 - 29,500 = 30,000 EGP</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Result with 50% free point limit</h3>
+                                <ul class="list">
+                                    <li>Cash revenue: <strong>59,500 EGP</strong></li>
+                                    <li>Operating cost: <strong>29,500 EGP</strong></li>
+                                    <li>Gross profit: <strong>30,000 EGP</strong></li>
+                                </ul>
+                                <p style="margin-top: 12px;">If marketing CAC = 30 EGP/user:</p>
+                                <p><strong>30,000 - 30,000 = 0 EGP</strong></p>
+                                <p>So you roughly break even.</p>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">23 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 24">
+                    <div class="slide-frame">
+                        <div class="slide-kicker animate">CAC Sensitivity</div>
+                        <h2 class="animate" style="--delay: 100ms">
+                            If CAC is lower because of organic launch
+                        </h2>
+                        <div class="grid grid-2" style="margin-top: 20px;">
+                            <div class="card animate" style="--delay: 220ms;">
+                                <h3>Marketing Cost</h3>
+                                <ul class="list">
+                                    <li><strong>10,000 EGP</strong></li>
+                                    <li><strong>20,000 EGP</strong></li>
+                                    <li><strong>30,000 EGP</strong></li>
+                                    <li><strong>50,000 EGP</strong></li>
+                                </ul>
+                            </div>
+                            <div class="card animate" style="--delay: 300ms;">
+                                <h3>Net Result</h3>
+                                <ul class="list">
+                                    <li><strong>+20,000 EGP</strong></li>
+                                    <li><strong>+10,000 EGP</strong></li>
+                                    <li><strong>Break-even</strong></li>
+                                    <li><strong>-20,000 EGP</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide-number-local">24 / 25</div>
+                    </div>
+                </section>
+
+                <section class="slide" aria-label="Slide 25">
                     <div class="slide-frame">
                         <div class="final-center">
                             <div class="final-content">
@@ -2460,7 +3521,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="slide-number-local">11 / 11</div>
+                        <div class="slide-number-local">25 / 25</div>
                     </div>
                 </section>
             </div>
@@ -2481,7 +3542,19 @@
                     ›
                 </button>
             </div>
-        </div>
+                    <div class="jump-wrap">
+                <label for="slideJump">Jump</label>
+                <input
+                    id="slideJump"
+                    class="jump-slider"
+                    type="range"
+                    min="1"
+                    max="25"
+                    step="1"
+                    value="1"
+                    aria-label="Jump to specific slide"
+                />
+            </div></div>
 
         <script>
             const slidesContainer = document.getElementById("slides");
@@ -2492,11 +3565,13 @@
             const progressEl = document.getElementById("progress");
             const nextBtn = document.getElementById("nextBtn");
             const prevBtn = document.getElementById("prevBtn");
+            const slideJump = document.getElementById("slideJump");
 
             let current = 0;
             let isAnimating = false;
 
             totalSlidesEl.textContent = String(totalSlides).padStart(2, "0");
+            slideJump.max = String(totalSlides);
 
             function goToSlide(index) {
                 if (isAnimating) return;
@@ -2525,6 +3600,7 @@
                     "0",
                 );
                 progressEl.style.width = `${((current + 1) / totalSlides) * 100}%`;
+                slideJump.value = String(current + 1);
 
                 prevBtn.disabled = current === 0;
                 nextBtn.disabled = current === totalSlides - 1;
@@ -2544,6 +3620,9 @@
 
             nextBtn.addEventListener("click", nextSlide);
             prevBtn.addEventListener("click", prevSlide);
+            slideJump.addEventListener("input", (event) => {
+                goToSlide(Number(event.target.value) - 1);
+            });
 
             document.addEventListener("keydown", (event) => {
                 const key = event.key;
@@ -2588,3 +3667,6 @@
         </script>
     </body>
 </html>
+
+
+
